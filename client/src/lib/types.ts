@@ -17,7 +17,7 @@ export interface Hotspot {
 export interface ContextualFact {
   text: string;
   source: string | null;
-  sourceUrl: string | null;
+  sourceUrl: string | null | undefined;
 }
 
 export interface DashboardData {

@@ -34,13 +34,17 @@ const Dashboard = () => {
     <section id="dashboard" className="py-8 md:py-12">
       <div className="container mx-auto px-4">
         <div className="text-center mb-8">
-          <h1 className="font-heading text-3xl md:text-4xl font-bold text-primary mb-2">
-            India-Pakistan Conflict Dashboard
+          <h1 className="font-heading text-3xl md:text-4xl font-bold mb-2">
+            <span className="text-danger">The Human Toll:</span>{" "}
+            <span className="text-primary">India-Pakistan Conflict</span>
           </h1>
-          <p className="text-neutral-600">
-            Real-time casualty data from the ongoing conflict
-          </p>
-          <div className="text-sm text-neutral-500 mt-2">
+          <div className="max-w-3xl mx-auto bg-neutral-100 p-4 rounded-lg border-l-4 border-danger">
+            <p className="text-neutral-800 font-medium text-lg">
+              Every number below represents a human life extinguished by violence. 
+              These are not statistics — they are children, parents, friends, and loved ones.
+            </p>
+          </div>
+          <div className="text-sm text-neutral-500 mt-4">
             <span>{getLastUpdatedText()}</span> •{" "}
             <span>
               Data from{" "}
@@ -57,21 +61,27 @@ const Dashboard = () => {
         {/* Country Breakdown */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           {/* India casualties */}
-          <div className="bg-white shadow-lg rounded-lg p-6">
-            <h3 className="font-heading text-xl font-bold mb-4">
-              Indian Casualties
+          <div className="bg-white shadow-lg rounded-lg p-6 border-t-4 border-danger">
+            <h3 className="font-heading text-xl font-bold mb-2">
+              Indian Lives Lost
             </h3>
-            <div className="flex justify-between items-center mb-2">
-              <span className="text-neutral-600">Civilians</span>
-              <span className="font-semibold text-danger">
-                {isLoading ? "Loading..." : data?.indiaCivilianCasualties || 0}
-              </span>
+            <p className="text-neutral-600 mb-4">People are dying on both sides</p>
+            <div className="bg-neutral-100 p-4 rounded-lg mb-4">
+              <div className="flex justify-between items-center mb-2">
+                <span className="text-neutral-700 font-medium">Innocent Civilians</span>
+                <span className="font-bold text-danger text-xl">
+                  {isLoading ? "Loading..." : data?.indiaCivilianCasualties || 0}
+                </span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-neutral-700 font-medium">Military Personnel</span>
+                <span className="font-bold text-primary text-xl">
+                  {isLoading ? "Loading..." : data?.indiaMilitaryCasualties || 0}
+                </span>
+              </div>
             </div>
-            <div className="flex justify-between items-center mb-2">
-              <span className="text-neutral-600">Military</span>
-              <span className="font-semibold text-primary">
-                {isLoading ? "Loading..." : data?.indiaMilitaryCasualties || 0}
-              </span>
+            <div className="text-sm text-neutral-700 italic">
+              Every casualty represents a family torn apart
             </div>
             <div className="text-xs text-neutral-500 mt-4">
               <Info className="h-3 w-3 inline mr-1" /> Data from{" "}
@@ -80,21 +90,27 @@ const Dashboard = () => {
           </div>
 
           {/* Pakistan casualties */}
-          <div className="bg-white shadow-lg rounded-lg p-6">
-            <h3 className="font-heading text-xl font-bold mb-4">
-              Pakistani Casualties
+          <div className="bg-white shadow-lg rounded-lg p-6 border-t-4 border-danger">
+            <h3 className="font-heading text-xl font-bold mb-2">
+              Pakistani Lives Lost
             </h3>
-            <div className="flex justify-between items-center mb-2">
-              <span className="text-neutral-600">Civilians</span>
-              <span className="font-semibold text-danger">
-                {isLoading ? "Loading..." : data?.pakistanCivilianCasualties || 0}
-              </span>
+            <p className="text-neutral-600 mb-4">Families suffering just like on the other side</p>
+            <div className="bg-neutral-100 p-4 rounded-lg mb-4">
+              <div className="flex justify-between items-center mb-2">
+                <span className="text-neutral-700 font-medium">Innocent Civilians</span>
+                <span className="font-bold text-danger text-xl">
+                  {isLoading ? "Loading..." : data?.pakistanCivilianCasualties || 0}
+                </span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-neutral-700 font-medium">Military Personnel</span>
+                <span className="font-bold text-primary text-xl">
+                  {isLoading ? "Loading..." : data?.pakistanMilitaryCasualties || 0}
+                </span>
+              </div>
             </div>
-            <div className="flex justify-between items-center mb-2">
-              <span className="text-neutral-600">Military</span>
-              <span className="font-semibold text-primary">
-                {isLoading ? "Loading..." : data?.pakistanMilitaryCasualties || 0}
-              </span>
+            <div className="text-sm text-neutral-700 italic">
+              No country benefits from the loss of its people
             </div>
             <div className="text-xs text-neutral-500 mt-4">
               <Info className="h-3 w-3 inline mr-1" /> Data from{" "}
@@ -139,25 +155,35 @@ const Dashboard = () => {
         </div>
 
         {/* Contextual Facts */}
-        <div className="bg-neutral-100 rounded-lg p-4 mb-8 border-l-4 border-primary">
-          <h4 className="font-heading text-lg font-bold mb-2">
-            Contextual Facts
+        <div className="bg-danger bg-opacity-10 rounded-lg p-6 mb-8 border-l-4 border-danger">
+          <h4 className="font-heading text-xl font-bold mb-4 text-danger">
+            The Real Cost of Conflict
           </h4>
-          <ul className="space-y-2 text-neutral-700">
+          <ul className="space-y-4 text-neutral-800">
             {data?.contextualFacts?.map((fact, index) => (
               <li key={index} className="flex items-start">
-                <Info className="text-primary mt-1 mr-2 h-4 w-4" />
-                <span>
-                  {fact.text}{" "}
+                <Info className="text-danger mt-1 mr-3 h-5 w-5 flex-shrink-0" />
+                <div>
+                  <p className="font-medium">
+                    {fact.text}
+                  </p>
                   {fact.source && (
-                    <a href={fact.sourceUrl} className="text-primary underline text-sm">
-                      Source: {fact.source}
-                    </a>
+                    <div className="mt-1">
+                      <a href={fact.sourceUrl || "#"} className="text-primary underline text-sm">
+                        Source: {fact.source}
+                      </a>
+                    </div>
                   )}
-                </span>
+                </div>
               </li>
             ))}
           </ul>
+          <div className="mt-6 p-4 bg-danger bg-opacity-20 rounded-lg">
+            <p className="text-neutral-800 font-medium">
+              Beyond these statistics are immeasurable consequences: trauma, economic devastation, 
+              environmental damage, and generational suffering that will outlast this conflict.
+            </p>
+          </div>
         </div>
 
         {/* CTA to Simulation */}

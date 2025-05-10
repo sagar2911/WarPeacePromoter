@@ -21,7 +21,7 @@ const Header = () => {
           <div className="flex items-center flex-shrink-0 mr-6">
             <Link href="/">
               <span className="font-heading font-bold text-xl tracking-tight cursor-pointer">
-                War Impact Tracker
+                Cost of War Tracker
               </span>
             </Link>
           </div>
@@ -42,59 +42,62 @@ const Header = () => {
           >
             <div className="text-sm lg:flex-grow">
               <Link href="/">
-                <a
-                  className={`block mt-4 lg:inline-block lg:mt-0 text-secondary hover:text-white mr-6 ${
+                <span
+                  className={`block mt-4 lg:inline-block lg:mt-0 text-secondary hover:text-white mr-6 cursor-pointer ${
                     isActive("/")
                       ? "font-semibold border-b-2 border-secondary"
                       : ""
                   }`}
                 >
-                  Live War Dashboard
-                </a>
+                  Lives Lost Dashboard
+                </span>
               </Link>
               <Link href="/simulation">
-                <a
-                  className={`block mt-4 lg:inline-block lg:mt-0 text-secondary hover:text-white mr-6 ${
+                <span
+                  className={`block mt-4 lg:inline-block lg:mt-0 text-secondary hover:text-white mr-6 cursor-pointer ${
                     isActive("/simulation")
                       ? "font-semibold border-b-2 border-secondary"
                       : ""
                   }`}
                 >
-                  War Simulation Tool
-                </a>
+                  Escalation Simulator
+                </span>
               </Link>
               <Link href="/past-conflicts">
-                <a
-                  className={`block mt-4 lg:inline-block lg:mt-0 text-secondary hover:text-white mr-6 ${
+                <span
+                  className={`block mt-4 lg:inline-block lg:mt-0 text-secondary hover:text-white mr-6 cursor-pointer ${
                     isActive("/past-conflicts")
                       ? "font-semibold border-b-2 border-secondary"
                       : ""
                   }`}
                 >
-                  Past Conflicts Statistics
-                </a>
+                  Forgotten Victims
+                </span>
               </Link>
               <Link href="/about">
-                <a
-                  className={`block mt-4 lg:inline-block lg:mt-0 text-secondary hover:text-white ${
+                <span
+                  className={`block mt-4 lg:inline-block lg:mt-0 text-secondary hover:text-white cursor-pointer ${
                     isActive("/about")
                       ? "font-semibold border-b-2 border-secondary"
                       : ""
                   }`}
                 >
                   About & Data Sources
-                </a>
+                </span>
               </Link>
             </div>
             <div>
               <Link href="/about#sources">
-                <a className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-primary hover:bg-white mt-4 lg:mt-0">
-                  Sources
-                </a>
+                <span className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-danger bg-danger hover:bg-danger/80 hover:border-danger/80 mt-4 lg:mt-0 cursor-pointer">
+                  Stop The Violence
+                </span>
               </Link>
             </div>
           </div>
         </nav>
+      </div>
+      <div className="bg-danger text-center text-white text-sm py-1">
+        <p>Every number represents a human life. War has no winners, only victims.</p>
       </div>
     </header>
   );
