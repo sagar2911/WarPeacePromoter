@@ -122,32 +122,41 @@ const Dashboard = () => {
         {/* Timeline and Map Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           {/* Timeline Graph */}
-          <div className="bg-white shadow-lg rounded-lg p-6">
-            <h3 className="font-heading text-xl font-bold mb-4">
-              Casualty Timeline
+          <div className="bg-white shadow-lg rounded-lg p-6 border-l-4 border-danger">
+            <h3 className="font-heading text-xl font-bold mb-2">
+              Escalating Human Tragedy
             </h3>
+            <p className="text-neutral-600 mb-4">Each day brings more grieving families</p>
             <TimelineChart timelineData={data?.timelineData} />
-            <div className="text-xs text-neutral-500 mt-4">
+            <div className="mt-4 p-3 bg-neutral-100 rounded-lg">
+              <p className="text-sm text-neutral-700 font-medium">
+                This chart shows the steady rise of deaths as the conflict continues. 
+                Each step upward represents more children without parents, more parents 
+                without children.
+              </p>
+            </div>
+            <div className="text-xs text-neutral-500 mt-2">
               <Info className="h-3 w-3 inline mr-1" /> Showing confirmed casualties over time
               since conflict began
             </div>
           </div>
 
           {/* Map Section */}
-          <div className="bg-white shadow-lg rounded-lg p-6">
-            <h3 className="font-heading text-xl font-bold mb-4">
-              Conflict Hotspots
+          <div className="bg-white shadow-lg rounded-lg p-6 border-l-4 border-primary">
+            <h3 className="font-heading text-xl font-bold mb-2">
+              Devastation Map
             </h3>
+            <p className="text-neutral-600 mb-4">Each location represents shattered communities</p>
             <ConflictMap hotspots={data?.hotspots} />
-            <div className="mt-4 text-sm text-neutral-600">
+            <div className="mt-4 p-3 bg-neutral-100 rounded-lg">
               {data?.hotspots?.map((hotspot, index) => (
-                <div key={index} className="flex items-center mb-1">
+                <div key={index} className="flex items-center mb-2">
                   <span
-                    className={`w-3 h-3 rounded-full ${
+                    className={`w-4 h-4 rounded-full ${
                       hotspot.type === "civilian" ? "bg-danger" : "bg-primary"
-                    } inline-block mr-2`}
+                    } inline-block mr-2 flex-shrink-0`}
                   ></span>
-                  <span>{hotspot.name} - {hotspot.casualties} {hotspot.type} casualties</span>
+                  <span className="font-medium">{hotspot.name} - {hotspot.casualties} {hotspot.type === "civilian" ? "innocent civilians" : "military personnel"} who will never return home</span>
                 </div>
               ))}
             </div>
@@ -187,12 +196,17 @@ const Dashboard = () => {
         </div>
 
         {/* CTA to Simulation */}
-        <div className="text-center mb-12">
+        <div className="mb-12 bg-neutral-100 p-8 rounded-lg text-center">
+          <h3 className="text-2xl font-bold mb-3 text-danger">Is Further Escalation Worth The Cost?</h3>
+          <p className="text-neutral-700 max-w-2xl mx-auto mb-6">
+            Our simulation tool shows the devastating impact of escalating this conflict. 
+            See for yourself how many more innocent lives would be lost if tensions continue to rise.
+          </p>
           <Link href="/simulation">
-            <a className="inline-block bg-primary hover:bg-primary/90 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300">
-              Explore War Simulation Tool
+            <span className="inline-block bg-danger hover:bg-danger/90 text-white font-bold py-4 px-8 rounded-lg transition-colors duration-300 shadow-lg cursor-pointer">
+              See The Cost of Escalation
               <span className="ml-2">→</span>
-            </a>
+            </span>
           </Link>
         </div>
       </div>

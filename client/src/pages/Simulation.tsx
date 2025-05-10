@@ -76,12 +76,16 @@ const Simulation = () => {
     <section id="simulation" className="py-8 md:py-12 bg-neutral-100">
       <div className="container mx-auto px-4">
         <div className="text-center mb-8">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary mb-2">
-            War Simulation Tool
+          <h2 className="font-heading text-3xl md:text-4xl font-bold mb-2">
+            <span className="text-danger">The Horror of Escalation:</span>{" "}
+            <span className="text-primary">Conflict Simulator</span>
           </h2>
-          <p className="text-neutral-600 max-w-2xl mx-auto">
-            Explore how different military decisions could affect the human and economic toll of this conflict.
-          </p>
+          <div className="max-w-3xl mx-auto bg-danger bg-opacity-10 p-4 rounded-lg border-l-4 border-danger">
+            <p className="text-neutral-800 font-medium text-lg">
+              This simulator shows the devastating potential of continued conflict. 
+              Adjust the parameters below to see how many more lives would be lost if hostilities escalate.
+            </p>
+          </div>
         </div>
 
         <div className="bg-white shadow-lg rounded-lg p-6 mb-8">
@@ -94,24 +98,33 @@ const Simulation = () => {
           </div>
 
           {/* Disclaimer */}
-          <div className="mt-6 p-3 bg-neutral-100 rounded-lg text-sm text-neutral-600">
-            <p>
-              <strong>Disclaimer:</strong> All figures are hypothetical and for
-              educational purposes only. This simulation aims to illustrate the
-              potential human cost of conflict escalation, not to predict exact
-              outcomes. Data is based on historical conflicts, military
-              capabilities, and academic studies.
+          <div className="mt-6 p-5 bg-danger bg-opacity-10 rounded-lg border-t-2 border-danger">
+            <h4 className="font-heading text-lg font-bold mb-2 text-danger">Beyond The Numbers</h4>
+            <p className="text-neutral-700">
+              These figures represent real human lives. Behind each number is a person with hopes, dreams, 
+              and loved ones. This simulation demonstrates why diplomatic solutions must always be prioritized 
+              over military action.
+            </p>
+            <p className="text-neutral-700 mt-3">
+              <strong>Remember:</strong> Escalating conflicts only leads to more suffering on all sides. 
+              The simulator's purpose is to show that even the "smallest" military actions have devastating 
+              human consequences.
             </p>
           </div>
         </div>
 
         {/* CTA to Historical Data */}
-        <div className="text-center">
+        <div className="text-center bg-neutral-100 rounded-lg p-6 border-t-4 border-danger">
+          <h3 className="text-xl font-bold mb-3 text-danger">History Shows Us War Only Brings Sorrow</h3>
+          <p className="text-neutral-700 max-w-2xl mx-auto mb-6">
+            Past conflicts between these nations have already claimed thousands of lives.
+            We cannot afford to repeat the tragedies of history.
+          </p>
           <Link href="/past-conflicts">
-            <a className="inline-block bg-primary hover:bg-primary/90 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300">
-              View Historical Conflict Data
+            <span className="inline-block bg-primary hover:bg-primary/90 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300 cursor-pointer shadow-md">
+              Remember The Lost Lives of Previous Conflicts
               <span className="ml-2">→</span>
-            </a>
+            </span>
           </Link>
         </div>
       </div>
