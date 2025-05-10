@@ -191,11 +191,11 @@ const About = () => {
           </p>
           <div className="flex items-center text-neutral-700 mb-2">
             <Mail className="mr-2 text-primary h-5 w-5" />
-            <span>info@warimpacttracker.org</span>
+            <span>email your local politician instead</span>
           </div>
           <div className="flex items-center text-neutral-700">
             <Twitter className="mr-2 text-primary h-5 w-5" />
-            <span>@WarImpactData</span>
+            <span>Tweet to your leaders to stop the war</span>
           </div>
         </div>
       </div>
